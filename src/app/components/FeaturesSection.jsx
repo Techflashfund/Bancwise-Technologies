@@ -60,7 +60,7 @@ const FeaturesSection = ({ colors }) => {
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section id='solutions' className="py-24 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
         <div className="absolute -top-20 -left-20 w-96 h-96 rounded-full opacity-10" 

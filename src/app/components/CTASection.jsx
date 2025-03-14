@@ -61,7 +61,7 @@ const AboutSection = ({ colors }) => {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-white">
+    <section id='contact'   className="py-24 relative overflow-hidden bg-white">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
         <svg className="absolute top-0 right-0 h-64 w-64 text-gray-100 transform rotate-90" viewBox="0 0 100 100" preserveAspectRatio="none">

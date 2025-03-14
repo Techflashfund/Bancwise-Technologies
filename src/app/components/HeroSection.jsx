@@ -20,7 +20,7 @@ const HeroSection = ({ colors, heroControls, heroRef }) => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ backgroundColor: colors.white }}>
+    <section id='home' className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ backgroundColor: colors.white }}>
       {/* Premium Background Emblem */}
       <motion.div 
         className="absolute inset-0 pointer-events-none overflow-hidden"

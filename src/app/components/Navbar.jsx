@@ -1,12 +1,43 @@
-// components/Navbar.js
 'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 const Navbar = ({ colors }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if we're on mobile view
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Initial check
+    checkIsMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkIsMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
+
   const navbarVariants = {
     hidden: { opacity: 0, y: -20 },
     visible: { opacity: 1, y: 0, transition: { delay: 1, duration: 0.6 } }
+  };
+
+  // Handle smooth scrolling when clicking navigation items
+  const handleNavClick = (e, id) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 80, // Offset for navbar height
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
@@ -22,9 +53,10 @@ const Navbar = ({ colors }) => {
           <Image
             src="/Screenshot 2025-03-12 150235.png"
             alt="BancWise Technologies Logo"
-            width={180}
-            height={50}
+            width={isMobile ? 180 : 250}
+            height={isMobile ? 60 : 80}
             priority
+            className="w-auto h-auto"
           />
         </div>
         
@@ -33,6 +65,7 @@ const Navbar = ({ colors }) => {
             <motion.a
               key={item}
               href={`#${item.toLowerCase().replace(' ', '-')}`}
+              onClick={(e) => handleNavClick(e, item.toLowerCase().replace(' ', '-'))}
               className="text-navy font-medium hover:text-teal transition-colors duration-300"
               style={{ color: colors.navy }}
               whileHover={{ color: colors.teal, scale: 1.05 }}
@@ -52,11 +85,7 @@ const Navbar = ({ colors }) => {
         </motion.button>
         
         <div className="md:hidden">
-          <button className="focus:outline-none">
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+          {/* You can keep the mobile menu icon here if needed, or remove it entirely */}
         </div>
       </div>
     </motion.nav>

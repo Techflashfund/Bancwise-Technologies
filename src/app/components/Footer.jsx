@@ -32,9 +32,9 @@ const Footer = ({ colors }) => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <ul className="space-y-2">
-              <li className="text-gray-400">123 Financial Street, Suite 456</li>
-              <li className="text-gray-400">New York, NY 10001</li>
-              <li className="text-gray-400">Phone: (123) 456-7890</li>
+              <li className="text-gray-400">KITEZ Business Park Thoppinmoola,Poothole</li>
+              <li className="text-gray-400">Thrissur,Kerala 680004</li>
+              <li className="text-gray-400">Phone:9585551544</li>
               <li className="text-gray-400">Email: info@bancwise.com</li>
             </ul>
           </div>

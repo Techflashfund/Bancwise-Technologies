@@ -1,4 +1,3 @@
-// components/ServicesSection.js
 'use client';
 import { motion } from 'framer-motion';
 
@@ -76,8 +75,36 @@ const ServicesSection = ({ colors, servicesControls, servicesRef, servicesInView
     },
   ];
 
+  // Updated team members data with the provided information
+  const teamMembers = [
+    {
+      name: "Mr. Sijo Paul E.",
+      position: "Banking Operations & Strategic Growth Expert",
+      bio: "Co-founder and Grievance expert with extensive knowledge in banking operations and developing strategic growth initiatives for financial institutions.",
+      image: "/SIJO PAUL (1).png"
+    },
+    {
+      name: "Mr. Bastian Jose",
+      position: "Banking & Credit Specialist",
+      bio: "Co-founder with specialized expertise in banking and credit solutions, helping financial institutions implement effective credit evaluation systems.",
+      image: "/Removal-79.png"
+    },
+    {
+      name: "Mr. Joji P. Sunny",
+      position: "MSME & SME & Corporate Lending Expert",
+      bio: "Co-founder focused on designing specialized lending solutions for MSMEs, SMEs, and corporate clients with deep industry knowledge.",
+      image: "/JOJI SUNNY (1).jpg"
+    },
+    {
+      name: "Mr. Selestin Thomas",
+      position: "Information Technology Expert",
+      bio: "Technical Partner with extensive experience in developing and implementing innovative IT solutions for the financial services industry.",
+      image: "/SELESTIN THOMAS.jpg"
+    }
+  ];
+
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section id='services' className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div 
           ref={servicesRef}
@@ -147,51 +174,126 @@ const ServicesSection = ({ colors, servicesControls, servicesRef, servicesInView
           ))}
         </div>
 
-        {/* Expertise section highlighting our strengths */}
+        {/* Updated Premium UI for Expert Team section */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={servicesInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-24 bg-gradient-to-r from-blue-50 to-teal-50 rounded-3xl p-10 shadow-lg"
+          className="mt-32"
+          id='about-us'
+          
         >
-          <div className="text-center mb-12">
-            <h3 
-              className="text-3xl font-bold mb-6"
+          <div  className="text-center mb-20">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={servicesInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.5 }}
+              className="inline-block mb-4"
+            >
+              <div 
+                className="w-20 h-20 rounded-full flex items-center justify-center mx-auto"
+                style={{ background: `linear-gradient(45deg, ${colors.blue}, ${colors.teal})` }}
+              >
+                <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+            </motion.div>
+            
+            <motion.h3 
+              initial={{ opacity: 0, y: 20 }}
+              animate={servicesInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-4xl font-bold mb-6"
               style={{ color: colors.navy }}
             >
-              Our Expertise
-            </h3>
-            <div 
-              className="w-24 h-1 mx-auto"
+              Our Expert Team
+            </motion.h3>
+            
+            <motion.div 
+              initial={{ opacity: 0, width: 0 }}
+              animate={servicesInView ? { opacity: 1, width: "128px" } : {}}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="h-1 mx-auto mb-8"
               style={{ background: `linear-gradient(90deg, ${colors.blue} 0%, ${colors.teal} 100%)` }}
-            ></div>
+            ></motion.div>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={servicesInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="max-w-2xl mx-auto text-lg text-gray-600"
+            >
+              Our leadership team brings decades of experience in financial technology innovation.
+            </motion.p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service, index) => (
+          
+          {/* Enhanced Premium UI Team Cards with the new team members */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teamMembers.map((member, index) => (
               <motion.div
-                key={`expertise-${index}`}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                animate={servicesInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="flex items-start space-x-4"
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={servicesInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.2 + (index * 0.15) }}
+                className="group"
               >
-                <div 
-                  className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: colors.teal }}
-                >
-                  <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 
-                    className="text-lg font-semibold mb-2"
-                    style={{ color: colors.navy }}
-                  >
-                    {service.title}
-                  </h4>
-                  <p className="text-gray-600 text-sm">{service.description}</p>
+                <div className="bg-white rounded-2xl p-6 transition-all duration-300 relative overflow-hidden border border-gray-100">
+                  {/* Subtle gradient accent */}
+                  <div 
+                    className="absolute top-0 left-0 right-0 h-2 opacity-80"
+                    style={{ background: `linear-gradient(90deg, ${colors.blue}, ${colors.teal})` }}
+                  ></div>
+                  
+                  {/* Profile image with refined styling */}
+                  <div className="relative flex justify-center mb-6">
+                    <div 
+                      className="absolute inset-0 rounded-full blur-sm opacity-20"
+                      style={{ background: `linear-gradient(135deg, ${colors.blue}, ${colors.teal})` }}
+                    ></div>
+                    
+                    <div className="w-32 h-32 rounded-full overflow-hidden shadow-md relative border-4 border-white">
+                      <img 
+                        src={member.image} 
+                        alt={member.name} 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="text-center">
+                    <h4 
+                      className="text-xl font-bold mb-1"
+                      style={{ color: colors.navy }}
+                    >
+                      {member.name}
+                    </h4>
+                    
+                    <p 
+                      className="text-sm font-semibold mb-4"
+                      style={{ color: colors.teal }}
+                    >
+                      {member.position}
+                    </p>
+                    
+                    {/* Bio section */}
+                    <p className="text-gray-600 text-sm mb-6 min-h-16">
+                      {member.bio}
+                    </p>
+                    
+                    {/* LinkedIn only */}
+                    <div className="flex justify-center mt-4">
+                      <a 
+                        href="#" 
+                        className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm"
+                        style={{ backgroundColor: `${colors.blue}10` }}
+                      >
+                        <svg className="w-5 h-5" style={{ color: colors.blue }} fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             ))}
