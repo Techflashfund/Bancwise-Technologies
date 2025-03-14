@@ -18,6 +18,7 @@ const HeroSection = ({ colors, heroControls, heroRef }) => {
       }
     }
   };
+  
 
   return (
     <section id='home' className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ backgroundColor: colors.white }}>
@@ -107,6 +108,11 @@ const HeroSection = ({ colors, heroControls, heroRef }) => {
               whileTap={{ scale: 0.95 }}
               className="px-10 py-5 rounded-full font-medium text-white shadow-xl text-lg"
               style={{ background: `linear-gradient(90deg, ${colors.blue} 0%, ${colors.teal} 100%)` }}
+              onClick={() => {
+                document.getElementById('solutions').scrollIntoView({ 
+                  behavior: 'smooth' 
+                });
+              }}
             >
               Explore Solutions
             </motion.button>
