@@ -205,6 +205,7 @@ const ServicesSection = ({ colors, servicesControls, servicesRef, servicesInView
               animate={servicesInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl font-bold mb-6"
+              id='our-team'
               style={{ color: colors.navy }}
             >
               Our Expert Team
